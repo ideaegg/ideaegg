@@ -1,5 +1,12 @@
 source 'https://rubygems.org'
 
+def darwin_only(require_as)
+  RUBY_PLATFORM.include?('darwin') && require_as
+end
+def linux_only(require_as)
+  RUBY_PLATFORM.include?('linux') && require_as
+end
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.2'
 
@@ -48,5 +55,21 @@ end
 gem 'bootstrap-sass'
 group :development do
   gem 'rails_layout'
+end
+
+group :development, :test do
+  gem 'rspec-rails', '~> 3.0.0.beta'
+  gem 'fabrication'
+
+  # Guard
+  gem 'guard', '~> 2.2.5'
+  gem 'guard-rspec', '~> 4.2.1', require: false
+  gem 'spork-rails', '~> 4.0.0'
+  gem 'guard-spork', '~> 1.5.1'
+
+  # Test notification
+  gem 'rb-fsevent', require: darwin_only('rb-fsevent')
+  gem 'growl',      require: darwin_only('growl')
+  gem 'rb-inotify', require: linux_only('rb-inotify')
 end
 
