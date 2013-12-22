@@ -43,3 +43,10 @@ end
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+
+# Use bootstrap as the theme framework
+gem 'bootstrap-sass'
+group :development do
+  gem 'rails_layout'
+end
+
