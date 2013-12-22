@@ -1,0 +1,5 @@
+language: ruby
+
+script: bundle exec rake travis:script
+rvm:
+  - 2.0.0
