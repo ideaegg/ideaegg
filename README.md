@@ -7,8 +7,13 @@
 * rails 4.0.2
 * PostgreSQL 
 
-## git flow 
+more infomation refer to: https://github.com/hutusi/ideaegg/wiki/Technical-Specifications
 
-* master
-* develop
+## Developer Guide
+
+https://github.com/hutusi/ideaegg/wiki/Developer-Guide
+
+## Developing Flow
+
+https://github.com/hutusi/ideaegg/wiki/Developing-Flow
 
