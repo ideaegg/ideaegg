@@ -82,3 +82,6 @@ end
 
 # deploy on heroku.com
 gem 'rails_12factor', group: :production
+
+# coveralls
+gem 'coveralls', require: false
