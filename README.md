@@ -21,3 +21,7 @@ https://github.com/hutusi/ideaegg/wiki/Developer-Guide
 
 https://github.com/hutusi/ideaegg/wiki/Developing-Flow
 
+## demo
+
+http://ideaegg-demo.herokuapp.com
+
