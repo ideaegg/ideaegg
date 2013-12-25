@@ -1,5 +1,9 @@
 # ideaegg 
 
+[![Build Status](https://travis-ci.org/hutusi/ideaegg.png?branch=master,develop)](https://travis-ci.org/hutusi/ideaegg)
+
+[![Code Climate](https://codeclimate.com/github/hutusi/ideaegg.png)](https://codeclimate.com/github/hutusi/ideaegg)  [![Dependency Status](https://gemnasium.com/hutusi/ideaegg.png)](https://gemnasium.com/hutusi/ideaegg) [![Coverage Status](https://coveralls.io/repos/hutusi/ideaegg/badge.png)](https://coveralls.io/r/hutusi/ideaegg)
+
 ## Requirements
 
 * git 
