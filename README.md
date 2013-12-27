@@ -17,3 +17,7 @@ https://github.com/hutusi/ideaegg/wiki/Developer-Guide
 
 https://github.com/hutusi/ideaegg/wiki/Developing-Flow
 
+
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/hutusi/ideaegg/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
