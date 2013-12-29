@@ -12,4 +12,19 @@
 
 class User < ActiveRecord::Base
   has_many :authentications, dependent: :destroy
+
+  accepts_nested_attributes_for :authentications
+
+  class << self
+    def create_with_omniauth(auth)
+      create do |user|
+        user.name = auth[:info][:name]
+        user.email = auth[:info][:email]
+        user.authentications_attributes = Authentication.new({
+          provider: auth[:provider],
+          uid: auth[:uid]
+        }).attributes
+      end
+    end
+  end
 end
