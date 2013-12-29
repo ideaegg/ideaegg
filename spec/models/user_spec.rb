@@ -1,5 +1,7 @@
 require 'spec_helper'
 
 describe User do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe 'Assoications' do
+    it { should have_many(:authentications) }
+  end
 end

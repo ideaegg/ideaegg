@@ -48,6 +48,7 @@ end
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
+gem 'omniauth-github'
 
 # Use unicorn as the app server
 # gem 'unicorn'
@@ -66,6 +67,7 @@ end
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.0.0.beta'
+  gem 'rspec-collection_matchers'
   gem 'fabrication'
 
   # Guard
@@ -78,6 +80,10 @@ group :development, :test do
   gem 'rb-fsevent', require: darwin_only('rb-fsevent')
   gem 'growl',      require: darwin_only('growl')
   gem 'rb-inotify', require: linux_only('rb-inotify')
+
+  # Schema comment
+  gem 'annotate', '>=2.6.0'
+  gem 'shoulda-matchers'
 end
 
 # deploy on heroku.com

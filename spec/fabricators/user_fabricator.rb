@@ -1,5 +1,5 @@
 Fabricator(:user) do
-  name            "MyString"
-  password_digest "MyString"
-  email           "MyString"
+  name { sequence(:name ) { |i| "name-#{i}"} }
+  email { sequence(:email) { |i| "user-#{i}@example.com"} }
+  password_digest '1234567890'
 end
