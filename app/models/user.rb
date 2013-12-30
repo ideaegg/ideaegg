@@ -16,8 +16,12 @@ class User < ActiveRecord::Base
   accepts_nested_attributes_for :authentications
 
   class << self
+    def from_auth(auth)
+      locate_auth(auth) || create_with_omniauth(auth)
+    end
+
     def create_with_omniauth(auth)
-      create do |user|
+      create! do |user|
         user.name = auth[:info][:name]
         user.email = auth[:info][:email]
         user.authentications_attributes = Authentication.new({
@@ -25,6 +29,10 @@ class User < ActiveRecord::Base
           uid: auth[:uid]
         }).attributes
       end
+    end
+
+    def locate_auth(auth)
+      Authentication.find_by_provider_and_uid(auth[:provider], auth[:uid]).try(:user)
     end
   end
 end
