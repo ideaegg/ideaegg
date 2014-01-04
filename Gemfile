@@ -84,6 +84,9 @@ group :development, :test do
   # Schema comment
   gem 'annotate', '>=2.6.0'
   gem 'shoulda-matchers'
+
+  # Mutes assets log
+  gem 'quiet_assets'
 end
 
 # deploy on heroku.com
