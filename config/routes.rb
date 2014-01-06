@@ -5,8 +5,6 @@ Ideaegg::Application.routes.draw do
 
   resources :users
 
-  resources :ideas
-
   root 'ideas#index'
 
 end
