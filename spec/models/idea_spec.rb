@@ -19,4 +19,19 @@ describe Idea do
     before { @idea.user_id = nil }
     it { should_not be_valid }
   end
+
+  describe "with blank title" do
+    before { @idea.title = " " }
+    it { should_not be_valid }
+  end
+
+  describe "with title that is too long" do
+    before { @idea.title = "a" * 141 }
+    it { should_not be_valid }
+  end
+  
+  describe "with blank description" do
+    before { @idea.description = " " }
+    it { should_not be_valid }
+  end
 end

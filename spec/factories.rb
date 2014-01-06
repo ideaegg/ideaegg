@@ -4,4 +4,10 @@ FactoryGirl.define do
     email    "john@example.com"
     password_digest "foobar"
   end
+
+  factory :idea do
+    title       "Hello"
+    description "Lorem ipsum"
+    user
+  end
 end
