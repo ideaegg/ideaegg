@@ -86,6 +86,11 @@ group :development, :test do
   gem 'shoulda-matchers'
 end
 
+group :test do
+  gem 'selenium-webdriver', '~> 2.35.1'
+  gem 'capybara', '~> 2.2.0'
+end
+
 # deploy on heroku.com
 gem 'rails_12factor', group: :production
 
