@@ -1,29 +1,16 @@
-<h1>Listing ideas</h1>
+<div class="row">
+  <aside class="span4">
+    <section>
+      <%= render 'shared/idea_form' %>
+    </section>
+  </aside>
 
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Description</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @ideas.each do |idea| %>
-      <tr>
-        <td><%= idea.title %></td>
-        <td><%= idea.description %></td>
-        <td><%= link_to 'Show', idea %></td>
-        <td><%= link_to 'Edit', edit_idea_path(idea) %></td>
-        <td><%= link_to 'Destroy', idea, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+  <div class="span8">
+    <% if @ideas.any? %>
+      <h3>Ideas (<%= @ideas.count %>)</h3>
+      <ol class="ideas">
+        <%= render @ideas %>
+      </ol>
     <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Idea', new_idea_path %>
+  </div>
+</div>

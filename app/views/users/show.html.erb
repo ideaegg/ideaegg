@@ -1,19 +1,19 @@
-<p id="notice"><%= notice %></p>
+<% provide(:title, @user.name) %>
+<div class="row">
+  <aside class="span4">
+    <section>
+      <h1>
+        <%= @user.name %>
+      </h1>
+    </section>
+  </aside>
 
-<p>
-  <strong>Name:</strong>
-  <%= @user.name %>
-</p>
-
-<p>
-  <strong>Password digest:</strong>
-  <%= @user.password_digest %>
-</p>
-
-<p>
-  <strong>Email:</strong>
-  <%= @user.email %>
-</p>
-
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+  <div class="span8">
+    <% if @user.ideas.any? %>
+      <h3>Ideas (<%= @user.ideas.count %>)</h3>
+      <ol class="ideas">
+        <%= render @ideas %>
+      </ol>
+    <% end %>
+  </div>
+</div>
