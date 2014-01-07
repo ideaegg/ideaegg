@@ -4,6 +4,7 @@ Ideaegg::Application.routes.draw do
   get '/auth/failure' => 'sessions#failure'
 
   resources :users
+  resources :ideas, only: [:create, :destroy]
 
   root 'ideas#index'
 

@@ -1,16 +1,13 @@
-<% provide(:title, @user.name) %>
 <div class="row">
   <aside class="span4">
     <section>
-      <h1>
-        <%= @user.name %>
-      </h1>
+      <%= render 'shared/idea_form' %>
     </section>
   </aside>
 
   <div class="span8">
-    <% if @user.ideas.any? %>
-      <h3>Ideas (<%= @user.ideas.count %>)</h3>
+    <% if @ideas.any? %>
+      <h3>Ideas (<%= @ideas.count %>)</h3>
       <ol class="ideas">
         <%= render @ideas %>
       </ol>

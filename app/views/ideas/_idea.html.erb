@@ -1,0 +1,10 @@
+<li>
+  <span class="title"><%= idea.title %></span>
+  <span class="description"><%= idea.description %></span>
+  <span class="timestamp">
+    Posted <%= time_ago_in_words(idea.created_at) %> ago.
+  </span>
+    <%= link_to "delete", idea, method: :delete,
+                                     data: { confirm: "You sure?" },
+                                     title: idea.title %>
+</li>
