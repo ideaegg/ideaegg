@@ -1,4 +1,7 @@
 class SessionsController < ApplicationController
+  def new
+  end
+
   def create
     user = User.from_auth(request.env['omniauth.auth'])
     sign_in user
@@ -16,6 +19,6 @@ class SessionsController < ApplicationController
 
   def failure
     flash[:error] = params[:message]
-    redirect_to root_path
+    redirect_to login_path
   end
 end

@@ -69,7 +69,6 @@ describe SessionsController do
         get :failure
       }.not_to raise_error
     end
-
   end
 
 end

@@ -31,6 +31,14 @@ ActiveRecord::Schema.define(version: 20140106125614) do
 
   add_index "ideas", ["user_id", "created_at"], name: "index_ideas_on_user_id_and_created_at"
 
+  create_table "identities", force: true do |t|
+    t.string   "name"
+    t.string   "email"
+    t.string   "password_digest"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "users", force: true do |t|
     t.string   "name"
     t.string   "password_digest"

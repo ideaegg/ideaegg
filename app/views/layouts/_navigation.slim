@@ -1,0 +1,22 @@
+nav.navbar.navbar-inverse.navbar-fixed-top
+  .container
+    .navbar-header
+      button.navbar-toggle data-target=".navbar-collapse" data-toggle="collapse" type="button"
+        span.sr-only Toggle navigation
+        span.icon-bar
+        span.icon-bar
+        span.icon-bar
+      = link_to 'Home', root_path, class: 'navbar-brand'
+    .collapse.navbar-collapse
+      ul.nav.navbar-nav
+        = render 'layouts/navigation_links'
+      - if current_user
+        ul.nav.navbar-nav.navbar-right
+          li
+            a href="#" #{current_user.name}
+          li
+            = link_to 'Log out', log_out_path, method: :delete
+      - else
+        ul.nav.navbar-nav.navbar-right
+          li
+            = link_to 'Log in', login_path

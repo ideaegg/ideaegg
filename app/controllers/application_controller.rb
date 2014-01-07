@@ -4,4 +4,11 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   include SessionsHelper
+
+  private
+  def require_no_logined
+    if current_user
+      redirect_to root_url
+    end
+  end
 end
