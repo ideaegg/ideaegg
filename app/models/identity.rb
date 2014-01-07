@@ -13,4 +13,8 @@
 class Identity < OmniAuth::Identity::Models::ActiveRecord
   validates :name, presence: true, uniqueness: { case_sensitive: false }, format: { with: /\A\w+\z/, message: '只允许数字、大小写字母和下划线' }
   validates :email, presence: true, uniqueness: { case_sensitive: false }, format: { with: /\A[-a-z0-9_+\.]+\@([-a-z0-9]+\.)+[a-z0-9]{2,4}\z/i }
+
+  before_validation(on: :create) do
+    self.password_confirmation = password
+  end
 end

@@ -1,0 +1,12 @@
+= form_tag "/auth/identity/callback", role: 'form', class: 'form-join' do
+  .form-group
+    = label_tag :auth_key, "Email"
+    = text_field_tag :auth_key, nil, class: 'form-control'
+  .form-group
+    = label_tag :password
+    = password_field_tag :password, nil, class: 'form-control'
+  = submit_tag 'Login', class: 'btn btn-primary btn-block'
+  .form-group
+    = link_to "Create an account", join_path
+    span &nbsp;or&nbsp;
+    = link_to 'Log in with Github', '/auth/github'

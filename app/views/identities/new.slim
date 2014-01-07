@@ -1,0 +1,19 @@
+= form_tag "/auth/identity/register", role: 'form', class: 'form-join' do
+  - if @identity && @identity.errors.any?
+    .error_messages
+      h2
+        = pluralize(@identity.errors.count, "error")
+        | prohibited this account from being saved:
+      ul
+        - @identity.errors.full_messages.each do |msg|
+          li #{msg}
+  .form-group
+    = label_tag :name
+    = text_field_tag :name, @identity.try(:name), class: 'form-control', placeholder: 'Pick a username'
+  .form-group
+    = label_tag :email
+    = text_field_tag :email, @identity.try(:email), class: 'form-control', placeholder: 'Your email'
+  .form-group
+    = label_tag :password
+    = password_field_tag :password, nil, class: 'form-control', placeholder: 'Create a password'
+  = submit_tag 'Register', class: 'btn btn-primary btn-block'

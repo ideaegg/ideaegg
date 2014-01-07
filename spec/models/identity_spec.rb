@@ -57,5 +57,13 @@ describe Identity do
       end
     end
 
+    context 'password_confirmation' do
+      it 'is valid when not given the password_confirmation' do
+        expect(Fabricate.build :identity,
+               password: '123456',
+               password_confirmation: '').to be_valid
+      end
+    end
+
   end
 end
