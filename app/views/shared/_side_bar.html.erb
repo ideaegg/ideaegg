@@ -1,0 +1,11 @@
+<% if signed_in? %>
+  <div class="row">
+    <%= link_to "New idea", new_idea_path, 
+      class: "btn btn-primary" %>
+  </div>
+<% else %>
+  <div class="row">
+    <%= link_to "Sign in", login_path,
+      class: "btn btn-primary" %>
+  </div>
+<% end %>

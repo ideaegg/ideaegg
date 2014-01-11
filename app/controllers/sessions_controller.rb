@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
     sign_in user
 
     flash[:success] = "Welcome #{user.name}!"
-    redirect_to root_path
+    redirect_back_or root_path
   end
 
   def destroy

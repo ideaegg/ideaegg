@@ -1,7 +1,11 @@
 class IdeasController < ApplicationController
+  before_action :signed_in_user, only: [:new, :create, :destroy]
+
   def index
     @ideas = Idea.all
-    ## tobe deleted
+  end
+
+  def new
     @idea = Idea.new
   end
   
