@@ -11,13 +11,13 @@ class IdeasController < ApplicationController
   
   def create
     @idea = Idea.new(idea_params)
+    @idea.user_id = current_user.id
 
     if @idea.save
       flash[:success] = "Micropost created!"
       redirect_to root_url
     else
-      @feed_items = []
-      redirect_to root_url
+      redirect_to new_idea_path
     end
   end
 
