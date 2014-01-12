@@ -1,5 +1,7 @@
 class IdeasController < ApplicationController
-  before_action :signed_in_user, only: [:new, :create, :destroy]
+  before_action :set_idea, only: [:show, :edit, :update, :destroy]
+  before_action :signed_in_user, only: [:new, :create, :edit, :update, :destroy, :show]
+  before_action :correct_user, only: [:edit, :update, :destroy]
 
   def index
     @ideas = Idea.all
@@ -21,9 +23,37 @@ class IdeasController < ApplicationController
     end
   end
 
-  private 
+  def show
+  end
+
+  def edit
+  end
+
+  def update
+    if @idea.update(idea_params)
+      flash[:success] = "Idea was successfully updated."
+      redirect_to @idea
+    else
+      render 'edit'
+    end
+  end
+
+  def destroy
+  end
+
+  private
+
+    def set_idea
+      @idea = Idea.find(params[:id])
+    end
+
     # Never trust parameters from the scary internet, only allow the white list through.
     def idea_params
       params.require(:idea).permit(:title, :description)
+    end
+
+    def correct_user
+      @idea = current_user.ideas.find_by(id: params[:id])
+      redirect_to root_url if @idea.nil?
     end
 end

@@ -1,9 +1,9 @@
-<% provide(:title, 'New idea') %>
-<h1>New idea</h1>
+<% provide(:title, 'Edit idea') %>
+<h1>Edit idea</h1>
 <div>
   <%= form_for(@idea) do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
   <%= render 'fields', f:f %>
-  <%= f.submit "Post", class: "btn btn-large btn-primary" %>
+  <%= f.submit "Submit", class: "btn btn-large btn-primary" %>
 <% end %>
 </div>

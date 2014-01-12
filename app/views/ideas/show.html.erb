@@ -1,0 +1,10 @@
+<div class='idea'>
+  <h1><%= @idea.title %></h1>
+  <p>By <%= @idea.user.name %></p>
+  <p><%= @idea.description %></p>
+
+  <% if @idea.belongs_to_user?(current_user) %>
+    <%= link_to 'Edit', edit_idea_path(@idea) %> |
+    <%= link_to 'Delete', @idea, method: :delete, data: { confirm: 'Are you sure?' } %>
+  <% end %>
+</div>
