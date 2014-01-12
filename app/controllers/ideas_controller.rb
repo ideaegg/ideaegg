@@ -1,6 +1,7 @@
 class IdeasController < ApplicationController
   before_action :set_idea, only: [:show, :edit, :update, :destroy]
-  before_action :signed_in_user, only: [:new, :create, :destroy, :show]
+  before_action :signed_in_user, only: [:new, :create, :edit, :update, :destroy, :show]
+  before_action :correct_user, only: [:edit, :update, :destroy]
 
   def index
     @ideas = Idea.all
@@ -49,5 +50,10 @@ class IdeasController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def idea_params
       params.require(:idea).permit(:title, :description)
+    end
+
+    def correct_user
+      @idea = current_user.ideas.find_by(id: params[:id])
+      redirect_to root_url if @idea.nil?
     end
 end

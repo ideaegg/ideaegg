@@ -4,4 +4,8 @@ class Idea < ActiveRecord::Base
   validates :user_id, presence: true
   validates :title, presence: true, length: { maximum: 140 }
   validates :description, presence: true
+
+  def belongs_to_user?(u)
+    user == u
+  end
 end
