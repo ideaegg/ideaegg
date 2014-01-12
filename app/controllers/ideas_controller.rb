@@ -1,5 +1,5 @@
 class IdeasController < ApplicationController
-  before_action :set_idea, only: [:show]
+  before_action :set_idea, only: [:show, :edit, :update, :destroy]
   before_action :signed_in_user, only: [:new, :create, :destroy, :show]
 
   def index
@@ -23,6 +23,21 @@ class IdeasController < ApplicationController
   end
 
   def show
+  end
+
+  def edit
+  end
+
+  def update
+    if @idea.update(idea_params)
+      flash[:success] = "Idea was successfully updated."
+      redirect_to @idea
+    else
+      render 'edit'
+    end
+  end
+
+  def destroy
   end
 
   private
