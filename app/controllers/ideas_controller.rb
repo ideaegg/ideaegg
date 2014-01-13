@@ -10,7 +10,7 @@ class IdeasController < ApplicationController
   def new
     @idea = Idea.new
   end
-  
+
   def create
     @idea = current_user.ideas.build(idea_params)
 
