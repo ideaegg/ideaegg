@@ -16,7 +16,7 @@ class IdeasController < ApplicationController
     @idea.user_id = current_user.id
 
     if @idea.save
-      flash[:success] = "Micropost created!"
+      flash[:success] = "Idea created!"
       redirect_to root_url
     else
       redirect_to new_idea_path
