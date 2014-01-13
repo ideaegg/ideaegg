@@ -12,8 +12,7 @@ class IdeasController < ApplicationController
   end
   
   def create
-    @idea = Idea.new(idea_params)
-    @idea.user_id = current_user.id
+    @idea = current_user.ideas.build(idea_params)
 
     if @idea.save
       flash[:success] = "Idea created!"
@@ -54,6 +53,6 @@ class IdeasController < ApplicationController
 
     def correct_user
       @idea = current_user.ideas.find_by(id: params[:id])
-      redirect_to root_url if @idea.nil?
+      redirect_to root_url unless @idea
     end
 end
