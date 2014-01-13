@@ -9,8 +9,8 @@
   </aside>
 
   <div class="span8">
-    <% if @user.ideas.any? %>
-      <h3>Ideas (<%= @user.ideas.count %>)</h3>
+    <% if @ideas.any? %>
+      <h3>Ideas (<%= @ideas.count %>)</h3>
       <ol class="ideas">
         <%= render @ideas %>
       </ol>
