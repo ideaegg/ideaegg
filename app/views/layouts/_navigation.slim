@@ -1,4 +1,4 @@
-nav.navbar.navbar-inverse.navbar-fixed-top
+nav.navbar.navbar-default role="navigation"
   .container
     .navbar-header
       button.navbar-toggle data-target=".navbar-collapse" data-toggle="collapse" type="button"
@@ -6,14 +6,16 @@ nav.navbar.navbar-inverse.navbar-fixed-top
         span.icon-bar
         span.icon-bar
         span.icon-bar
-      = link_to 'Home', root_path, class: 'navbar-brand'
+      = link_to 'Ideaegg', root_path, class: 'navbar-brand'
     .collapse.navbar-collapse
       ul.nav.navbar-nav
         = render 'layouts/navigation_links'
       - if current_user
         ul.nav.navbar-nav.navbar-right
           li
-            a href="#" #{current_user.name}
+            = link_to '#', class: 'name' do
+              = gravatar_for(current_user, size: 20)
+              | #{current_user.name}
           li
             = link_to 'Log out', log_out_path, method: :delete
       - else
