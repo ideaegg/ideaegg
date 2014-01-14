@@ -65,9 +65,6 @@ gem 'omniauth-identity'
 
 # Use bootstrap as the theme framework
 gem 'bootstrap-sass'
-group :development do
-  gem 'rails_layout'
-end
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.0.0.beta'

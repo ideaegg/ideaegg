@@ -150,7 +150,6 @@ GEM
     rails_12factor (0.0.2)
       rails_serve_static_assets
       rails_stdout_logging
-    rails_layout (0.5.8)
     rails_serve_static_assets (0.0.1)
     rails_stdout_logging (0.0.3)
     railties (4.0.2)
@@ -277,7 +276,6 @@ DEPENDENCIES
   quiet_assets
   rails (= 4.0.2)
   rails_12factor
-  rails_layout
   rb-fsevent
   rb-inotify
   rspec-collection_matchers
