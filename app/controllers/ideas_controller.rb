@@ -16,9 +16,9 @@ class IdeasController < ApplicationController
 
     if @idea.save
       flash[:success] = "Idea created!"
-      redirect_to root_url
+      redirect_to @idea
     else
-      redirect_to new_idea_path
+      render :new
     end
   end
 
@@ -38,6 +38,8 @@ class IdeasController < ApplicationController
   end
 
   def destroy
+    @idea.destroy
+    redirect_to root_path
   end
 
   private
@@ -52,7 +54,6 @@ class IdeasController < ApplicationController
     end
 
     def correct_user
-      @idea = current_user.ideas.find_by(id: params[:id])
-      redirect_to root_url unless @idea
+      redirect_to root_url unless current_user.ideas.include?(@idea)
     end
 end

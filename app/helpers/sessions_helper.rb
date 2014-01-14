@@ -4,7 +4,7 @@ module SessionsHelper
     session[:current_user_id] = user.id
   end
 
-  def signed_in? 
+  def signed_in?
     !current_user.nil?
   end
 
