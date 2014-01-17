@@ -1,0 +1,7 @@
+- provide(:title, 'New idea')
+.col-md-8.col-md-offset-2
+  h1 New  idea
+  = form_for(@idea, role: 'form') do |f| 
+    = render 'shared/error_messages', object: f.object
+    = render 'fields', f: f
+    = f.submit "Post", class: 'btn btn-primary'

@@ -66,6 +66,8 @@ GEM
     faraday (0.8.8)
       multipart-post (~> 1.2.0)
     ffi (1.9.3)
+    font-awesome-rails (4.0.3.1)
+      railties (>= 3.2, < 5.0)
     formatador (0.2.4)
     growl (1.0.3)
     guard (2.2.5)
@@ -150,7 +152,6 @@ GEM
     rails_12factor (0.0.2)
       rails_serve_static_assets
       rails_stdout_logging
-    rails_layout (0.5.8)
     rails_serve_static_assets (0.0.1)
     rails_stdout_logging (0.0.3)
     railties (4.0.2)
@@ -265,6 +266,7 @@ DEPENDENCIES
   coffee-rails (~> 4.0.0)
   coveralls
   fabrication
+  font-awesome-rails
   growl
   guard (~> 2.2.5)
   guard-rspec (~> 4.2.1)
@@ -277,7 +279,6 @@ DEPENDENCIES
   quiet_assets
   rails (= 4.0.2)
   rails_12factor
-  rails_layout
   rb-fsevent
   rb-inotify
   rspec-collection_matchers
