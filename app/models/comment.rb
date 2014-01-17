@@ -6,4 +6,8 @@ class Comment < ActiveRecord::Base
   validates :user_id, presence: true
   validates :idea_id, presence: true
   validates :content, presence: true
+
+  def user_name
+    user.name
+  end
 end

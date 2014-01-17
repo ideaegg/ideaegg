@@ -10,3 +10,9 @@
 <% else %>
   <p>Please <%= link_to 'Sign in', login_path %> first.</p>
 <% end %>
+
+<% @comments.each do |comment| %>
+  <div class="comment" >
+    <%= comment.content %> Post by <%= comment.user_name %>
+  </div>
+<% end %>

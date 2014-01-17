@@ -24,6 +24,7 @@ class IdeasController < ApplicationController
 
   def show
     @comment = Comment.new
+    @comments = @idea.comments
   end
 
   def edit
