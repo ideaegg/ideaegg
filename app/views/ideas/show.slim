@@ -1,0 +1,40 @@
+.row.idea
+  .col-md-7.col-md-offset-1
+    .idea-content
+      h1= @idea.title
+      p= @idea.description
+  .col-md-3
+    .info
+      .attribution
+        = link_to @idea.user, class: 'avatar' do
+          = avatar_for(@idea.user, size: 57)
+        .author
+          span
+            | By
+            = link_to @idea.user, class: 'name' do
+              span= @idea.user.name
+          .created_at= @idea.created_at.strftime('%b,%d %Y')
+    .bubble.show-status
+      .bubble-content
+        li
+          = link_to '#' do
+            = fa_icon 'eye', text: 'View'
+          span= rand(100)
+        li
+          = link_to '#' do
+            = fa_icon 'heart', text: 'Like'
+          span= rand(100)
+        li
+          = link_to '#' do
+            = fa_icon 'star', text: 'Favorite'
+          span= rand(100)
+        li
+          = link_to '#' do
+            = fa_icon 'comment', text: 'Comment'
+          span= rand(100)
+    .show-actions
+      - if @idea.belongs_to_user?(current_user)
+        = link_to edit_idea_path(@idea), class: 'btn btn-primary btn-block' do
+          = fa_icon 'edit', text: 'Edit'
+        = link_to @idea, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-block' do
+          = fa_icon 'trash-o', text: 'Delete'
