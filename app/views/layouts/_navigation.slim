@@ -13,6 +13,8 @@ nav.navbar.navbar-default role="navigation"
       - if current_user
         ul.nav.navbar-nav.navbar-right
           li
+            = link_to fa_icon('magic', text: 'New Idea'), new_idea_path
+          li
             = link_to '#', class: 'name' do
               = gravatar_for(current_user, size: 20)
               | #{current_user.name}
