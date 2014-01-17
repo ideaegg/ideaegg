@@ -1,0 +1,19 @@
+.row
+  - @ideas.each do |idea|
+    .col-md-4
+      .idea-item
+        = link_to idea, class: 'entry' do
+          .status.pull-right *{class:  ['status-idea', 'status-egg'].sample}
+          .header= idea.title
+          - if [true, false].sample
+            span.tag= ['Best of', 'Hot'].sample
+          .main= truncate(strip_tags(idea.description), length: 70)
+        .meta
+          .actions.pull-right
+            span
+              = link_to fa_icon('thumbs-o-up', text: '+1'), '#'
+            span
+              = link_to fa_icon('star-o', text: 'Favorite'), '#'
+          = link_to idea.user, class: 'author' do
+            = avatar_for(idea.user, size: 16)
+            span= idea.user.name

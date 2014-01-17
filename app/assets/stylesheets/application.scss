@@ -1,5 +1,11 @@
- @import "_variables";
- @import "bootstrap";
- @import "font-awesome";
- @import "sessions";
- @import "users";
+@import "_variables";
+@import "bootstrap";
+@import "font-awesome";
+@import "sessions";
+@import "users";
+@import "ideas";
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  background: #f2f2f2;
+}
