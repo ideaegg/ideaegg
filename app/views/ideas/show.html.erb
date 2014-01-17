@@ -7,4 +7,6 @@
     <%= link_to 'Edit', edit_idea_path(@idea) %> |
     <%= link_to 'Delete', @idea, method: :delete, data: { confirm: 'Are you sure?' } %>
   <% end %>
+
+  <%= render @comment %>
 </div>

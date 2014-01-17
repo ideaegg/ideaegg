@@ -7,6 +7,7 @@ Ideaegg::Application.routes.draw do
 
   resources :users
   resources :ideas
+  resources :comments, only: [:create]
 
   root 'ideas#index'
 
