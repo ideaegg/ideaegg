@@ -1,14 +1,9 @@
-- if signed_in?
-  = form_for(@comment) do |f|
-    = render 'shared/error_messages', object: f.object
-    .comment-content
-      = f.text_area :content, placeholder: "Comments here ..."
-    = f.hidden_field :idea_id, :value => @idea.id
-    = f.submit "Post", class: "btn btn-small btn-primary"
-- else
-  p
-    | Please #{link_to 'Sign in', login_path} first.
-- @comments.each do |comment|
-  .comment-comment
+.comment
+  .comment-author
+    = link_to comment.user, class: 'avatar' do
+      = avatar_for(comment.user, size: 32)
+      | #{comment.user_name}
+  .comment-content
     = comment.content
-    | Post by #{comment.user_name}
+  .comment-meta
+    = timeago_tag comment.created_at, nojs: true, limit: 1.month.ago

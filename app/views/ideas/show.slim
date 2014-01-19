@@ -3,8 +3,27 @@
     .idea-content
       h1= @idea.title
       p= @idea.description
-    .idea-comment
-      =render @comment
+    .idea-comments
+      - if @comments.blank?
+        .no-comment 暂无评论。
+      - else
+        h2.comment-count #{@idea.comments.count} Comments
+        .comments
+          = render @comments
+
+      - if signed_in?
+        .new-comment
+          = link_to current_user, class: 'author' do
+            = avatar_for(current_user, size: 32)
+          = form_for([@idea, @new_comment], role: 'form', html: { class: 'new-comment-form' }) do |f|
+            = render 'shared/error_messages', object: f.object
+            .form-group
+              = f.text_area :content, placeholder: 'Comment here ...', rows: 3, class: 'form-control'
+            .form-group
+              = f.submit 'Post', class: 'btn btn-small btn-primary pull-right', data: { disable_with: 'Posting' }
+      - else
+        p
+          | Please #{link_to 'Sign in', login_path} first.
   .col-md-3
     .info
       .attribution
@@ -29,10 +48,6 @@
         li
           = link_to '#' do
             = fa_icon 'star', text: 'Favorite'
-          span= rand(100)
-        li
-          = link_to '#' do
-            = fa_icon 'comment', text: 'Comment'
           span= rand(100)
     .show-actions
       - if @idea.belongs_to_user?(current_user)

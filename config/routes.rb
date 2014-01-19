@@ -6,8 +6,9 @@ Ideaegg::Application.routes.draw do
   get '/join' => 'identities#new', as: :join
 
   resources :users
-  resources :ideas
-  resources :comments, only: [:create]
+  resources :ideas do
+    resources :comments, only: [:create]
+  end
 
   root 'ideas#index'
 

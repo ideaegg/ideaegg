@@ -88,9 +88,72 @@
 
 .idea {
   .idea-content {
+    border: 1px solid hsla(0, 0%, 90%, 1);
+    padding: 1em;
     h1 {
       border-bottom: 1px solid hsla(0, 0%, 70%, 0.7);
       padding: 0.3em 0;
+      font-size: 2em;
+      font-weight: bold;
+      padding: 0.5em 0;
+      margin: 0 0 0.3em 0;
+    }
+  }
+  .idea-comments {
+    margin: 3em 0;
+    color: hsla(0, 0%, 7%, 1);
+    .comment-count {
+      font-size: 125%;
+      font-weight: bold;
+      padding-bottom: 0.5em;
+      border-bottom: 1px solid hsla(0, 0%, 80%, 0.7);
+    }
+    .no-comment {
+      @extend .text-muted;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    a {
+      color: hsla(0, 0%, 60%, 1);
+      &:hover {
+        color: hsla(0, 0%, 40%, 1);
+      }
+    }
+    .comment {
+      margin: 1em 0;
+      border-bottom: 1px solid hsla(0, 0%, 80%, 0.7);
+      .comment-author {
+        font-size: 100%;
+        font-weight: bold;
+
+        img {
+          @extend .pull-left;
+          padding-right: 7px;
+        }
+      }
+      .comment-content {
+        word-break: break-all;
+        margin: 0 0.5em 0 39px;
+      }
+      .comment-meta {
+        font-size: .75em;
+        color: hsla(0, 0%, 60%, 1);
+        margin: .3em 0 1em 39px;
+        &:hover {
+          color: hsla(0, 0%, 40%, 1);
+        }
+      }
+    }
+    .new-comment {
+      .author {
+        @extend .pull-left;
+        img {
+          padding-right: 7px;
+        }
+      }
+      .new-comment-form {
+        margin-left: 39px;
+      }
     }
   }
   .info , .show-actions, .show-status {

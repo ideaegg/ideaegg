@@ -23,8 +23,8 @@ class IdeasController < ApplicationController
   end
 
   def show
-    @comment = Comment.new
-    @comments = @idea.comments
+    @new_comment = Comment.new
+    @comments = @idea.comments.order("created_at asc")
   end
 
   def edit
