@@ -1,5 +1,5 @@
 Fabricator(:comment) do
-  content "MyText"
-  user_id 1
-  idea_id 1
+  content { sequence(:content ) { |i| "content-#{i}"} }
+  user
+  idea
 end
