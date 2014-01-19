@@ -5,3 +5,55 @@
 .name img {
   padding-right: 5px;
 }
+
+.user {
+  .vcard {
+    .avatared {
+      padding-bottom: 0.5em;
+      .avatar img {
+        width: 100%;
+        border-radius: $border-radius-large;
+      }
+      .vcard-name {
+        font-size: 1.7em;
+        font-weight: bold;
+      }
+    }
+    .vcard-details, .vcard-stats {
+      border-top: 1px solid hsla(0, 0%, 90%, 1);
+      padding: 1.3em 0;
+    }
+    .vcard-details {
+      .vcard-detail {
+        i {
+          color: hsla(0, 0%, 40%, .7)
+        }
+        span {
+          padding: 0 0.1em;
+        }
+      }
+    }
+    .vcard-stats {
+      padding-bottom: 7em;
+      .vcard-stat {
+        @extend .text-center;
+        float: left;
+        width: 33.333%;
+        font-size: .7em;
+        margin: 0.3em 0;
+        color: hsla(0, 0%, 60%, 1);
+        text-decoration: none;
+        &:hover {
+          color: hsla(0, 0%, 40%, 1);
+        }
+        .vcard-stat-count {
+          display: block;
+          font-size: 28px;
+          font-weight: bold;
+          line-height: 1;
+          color: hsl(0, 0%, 13%);
+        }
+      }
+    }
+  }
+}
