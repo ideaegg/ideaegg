@@ -11,5 +11,4 @@ require 'spec_helper'
 #   end
 # end
 describe IdeasHelper do
-  pending "add some examples to (or delete) #{__FILE__}"
 end
