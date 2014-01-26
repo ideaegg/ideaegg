@@ -8,6 +8,7 @@
 #  user_id     :integer
 #  created_at  :datetime
 #  updated_at  :datetime
+#  likes_count :integer
 #
 
 class Idea < ActiveRecord::Base
