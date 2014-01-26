@@ -11,6 +11,10 @@ describe Idea do
     it { should respond_to(:user_id) }
   end
 
+  describe 'Associations' do
+    it { should have_many(:likes) }
+  end
+
   it { should be_valid }
 
   describe 'Attributes' do

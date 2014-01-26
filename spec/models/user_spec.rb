@@ -13,6 +13,7 @@ describe User do
 
   describe 'Assoications' do
     it { should have_many(:authentications) }
+    it { should have_many(:likes) }
   end
 
   describe '#create_with_omniauth' do
