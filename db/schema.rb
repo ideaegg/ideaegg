@@ -29,16 +29,16 @@ ActiveRecord::Schema.define(version: 20140121022028) do
     t.datetime "updated_at"
   end
 
-  create_table "idea_like", force: true do |t|
+  create_table "idea_likes", force: true do |t|
     t.integer  "user_id"
     t.integer  "idea_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "idea_like", ["idea_id"], name: "index_idea_like_on_idea_id"
-  add_index "idea_like", ["user_id", "idea_id"], name: "index_idea_like_on_user_id_and_idea_id", unique: true
-  add_index "idea_like", ["user_id"], name: "index_idea_like_on_user_id"
+  add_index "idea_likes", ["idea_id"], name: "index_idea_likes_on_idea_id"
+  add_index "idea_likes", ["user_id", "idea_id"], name: "index_idea_likes_on_user_id_and_idea_id", unique: true
+  add_index "idea_likes", ["user_id"], name: "index_idea_likes_on_user_id"
 
   create_table "ideas", force: true do |t|
     t.string   "title"
