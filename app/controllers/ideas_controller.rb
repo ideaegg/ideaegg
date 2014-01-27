@@ -1,6 +1,6 @@
 class IdeasController < ApplicationController
   before_action :set_idea, only: [:show, :edit, :update, :destroy]
-  before_action :signed_in_user, only: [:new, :create, :edit, :update, :destroy, :show]
+  before_action :signed_in_user, only: [:new, :create, :edit, :update, :destroy, :show, :like]
   before_action :correct_user, only: [:edit, :update, :destroy]
 
   def index
@@ -42,6 +42,11 @@ class IdeasController < ApplicationController
   def destroy
     @idea.destroy
     redirect_to root_path
+  end
+
+  def like
+    idea_like = IdeaLike.new({idea_id: @idea.id, user_id: current_user.id})
+    idea_like.save
   end
 
   private
