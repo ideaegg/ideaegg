@@ -139,6 +139,11 @@ GEM
       coderay (~> 1.0)
       method_source (~> 0.8)
       slop (~> 3.4)
+    qiniu-rs (3.4.6)
+      json (~> 1.7)
+      mime-types (~> 1.19)
+      rest-client (~> 1.6)
+      ruby-hmac (~> 0.4)
     quiet_assets (1.0.2)
       railties (>= 3.1, < 5.0)
     rack (1.5.2)
@@ -196,6 +201,7 @@ GEM
       rspec-expectations (= 3.0.0.beta1)
       rspec-mocks (= 3.0.0.beta1)
     rspec-support (3.0.0.beta1)
+    ruby-hmac (0.4.0)
     rubyzip (0.9.9)
     sass (3.2.13)
     sass-rails (4.0.1)
@@ -285,6 +291,7 @@ DEPENDENCIES
   omniauth-github
   omniauth-identity
   pg
+  qiniu-rs
   quiet_assets
   rails (= 4.0.2)
   rails-timeago (~> 2.0)

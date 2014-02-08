@@ -10,6 +10,10 @@ $ ->
                 ['insert', ['picture', 'link']],
                 ['view', ['fullscreen']]
              ]
+    onImageUpload: (files, editor, welEditable) ->
+      for file in files
+        Qiniu.sendFile file, (url) ->
+          editor.insertImage(welEditable, url)
   }
 
   # to set code for summernote
