@@ -4,11 +4,19 @@
 @import "sessions";
 @import "users";
 @import "ideas";
+@import "summernote";
 
 body {
   font-family: 'Helvetica Neue', Helvetica,Arial, 'Hiragino Sans GB', sans-serif;
   padding-bottom: 1em;
 }
+textarea {
+  resize: none;
+}
 footer {
   padding: 1em 0;
+}
+
+.note-editor .note-editable {
+  overflow: auto;
 }

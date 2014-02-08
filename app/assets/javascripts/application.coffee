@@ -1,5 +1,8 @@
 #= require jquery
+#= require jquery.turbolinks
 #= require jquery_ujs
-#= require turbolinks
 #= require bootstrap
 #= require rails-timeago
+#= require summernote.min
+#= require ideas
+#= require turbolinks
