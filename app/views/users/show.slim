@@ -29,10 +29,7 @@
               .main= truncate(strip_tags(idea.description), length: 70)
             .meta
               .actions.pull-right
-                span
-                  = link_to fa_icon('thumbs-o-up', text: '+1'), '#'
-                span
-                  = link_to fa_icon('star-o', text: 'Favorite'), '#'
+                = like_tag(idea)
               = link_to idea.user, class: 'author' do
                 = avatar_for(idea.user, size: 16)
                 span= idea.user.name
