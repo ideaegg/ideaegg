@@ -15,6 +15,7 @@ class User < ActiveRecord::Base
   has_many :authentications, dependent: :destroy
   has_many :comments
   has_many :likes, dependent: :destroy
+  has_many :like_ideas, through: :likes, source: :idea, dependent: :destroy
 
   accepts_nested_attributes_for :authentications
 
@@ -37,5 +38,9 @@ class User < ActiveRecord::Base
     def locate_auth(auth)
       Authentication.find_by_provider_and_uid(auth[:provider], auth[:uid]).try(:user)
     end
+  end
+
+  def like?(idea)
+    idea && like_ideas.include?(idea)
   end
 end

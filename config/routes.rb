@@ -8,6 +8,10 @@ Ideaegg::Application.routes.draw do
   resources :users
   resources :ideas do
     resources :comments, only: [:create]
+    member do
+      post 'like' => 'likes#create', as: :like
+      delete 'like' => 'likes#destroy', as: :unlike
+    end
   end
 
   root 'ideas#index'

@@ -10,9 +10,6 @@
   &:hover {
     background: hsla(0, 100%, 99%, 1);
     border-color: hsla(0, 0%, 80%, 1);
-    .meta .actions {
-      display: block;
-    }
   }
 
   .entry {
@@ -68,8 +65,6 @@
     }
 
     .actions {
-      display: none;
-
       span {
         padding: 0 0.3em;
       }
@@ -227,7 +222,6 @@
       list-style: none;
       border-top: 1px solid hsla(0, 0%, 90%, 1);
       font-weight: bold;
-      cursor: pointer; 
 
       a {
         color: hsla(0, 0%, 60%, 1);

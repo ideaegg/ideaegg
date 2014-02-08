@@ -2,8 +2,9 @@ require 'spec_helper'
 
 describe Idea do
   let(:user) { Fabricate(:user) }
+  let(:idea) { Fabricate(:idea) }
 
-  subject { Fabricate(:idea) }
+  subject { idea }
 
   describe 'Respand to' do
     it { should respond_to(:title) }
@@ -13,6 +14,7 @@ describe Idea do
 
   describe 'Associations' do
     it { should have_many(:likes) }
+    it { should have_many(:like_users) }
   end
 
   it { should be_valid }
@@ -36,6 +38,13 @@ describe Idea do
         idea.description = " "
         idea.should_not be_valid
       end
+    end
+  end
+
+  describe '#like_users' do
+    it 'returns the like_users' do
+      user.likes.create idea: idea
+      idea.like_users.should == [user]
     end
   end
 

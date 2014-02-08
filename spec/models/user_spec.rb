@@ -11,6 +11,10 @@ describe User do
     }}
   end
 
+  describe 'Respond to' do
+    it { should respond_to(:like?) }
+  end
+
   describe 'Assoications' do
     it { should have_many(:authentications) }
     it { should have_many(:likes) }
@@ -30,6 +34,33 @@ describe User do
     it 'should create new authentication of the user' do
       user = User.create_with_omniauth(@auth)
       user.authentications.count.should == 1
+    end
+  end
+
+  describe '#like_ideas' do
+    let(:user) { Fabricate(:user) }
+    let(:idea) { Fabricate(:idea) }
+
+    it 'returns the like_ideas' do
+      user.likes.create idea: idea
+      user.like_ideas.should == [idea]
+    end
+  end
+
+  describe '#like?' do
+    let(:user) { Fabricate(:user) }
+    let(:idea) { Fabricate(:idea) }
+
+    before(:each) do
+      user.likes.create idea: idea
+    end
+
+    it 'likes the idea' do
+      user.like?(idea).should == true
+    end
+    it 'does not like the idea' do
+      user.likes.destroy_all
+      user.like?(idea).should == false
     end
   end
 end
