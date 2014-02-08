@@ -67,6 +67,8 @@ gem 'omniauth-identity'
 gem 'bootstrap-sass'
 gem 'font-awesome-rails'
 gem 'rails-timeago', '~> 2.0'
+gem 'summernote-rails'
+gem 'jquery-turbolinks'
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.0.0.beta'
@@ -102,3 +104,5 @@ gem 'rails_12factor', group: :production
 
 # coveralls
 gem 'coveralls', require: false
+
+gem 'qiniu-rs'
