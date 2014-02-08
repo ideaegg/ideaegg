@@ -4,7 +4,7 @@ class IdeasController < ApplicationController
   before_action :correct_user, only: [:edit, :update, :destroy]
 
   def index
-    @ideas = Idea.all
+    @ideas = Idea.order('likes_count DESC').all
   end
 
   def new
