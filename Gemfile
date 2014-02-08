@@ -29,6 +29,9 @@ gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .js.coffee assets and views
 gem 'coffee-rails', '~> 4.0.0'
 
+# Html template
+gem 'slim-rails'
+
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
@@ -48,6 +51,8 @@ end
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
+gem 'omniauth-github'
+gem 'omniauth-identity'
 
 # Use unicorn as the app server
 # gem 'unicorn'
@@ -60,12 +65,12 @@ end
 
 # Use bootstrap as the theme framework
 gem 'bootstrap-sass'
-group :development do
-  gem 'rails_layout'
-end
+gem 'font-awesome-rails'
+gem 'rails-timeago', '~> 2.0'
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.0.0.beta'
+  gem 'rspec-collection_matchers'
   gem 'fabrication'
 
   # Guard
@@ -78,7 +83,22 @@ group :development, :test do
   gem 'rb-fsevent', require: darwin_only('rb-fsevent')
   gem 'growl',      require: darwin_only('growl')
   gem 'rb-inotify', require: linux_only('rb-inotify')
+
+  # Schema comment
+  gem 'annotate', '>=2.6.0'
+  gem 'shoulda-matchers'
+
+  # Mutes assets log
+  gem 'quiet_assets'
+end
+
+group :test do
+  gem 'selenium-webdriver', '~> 2.35.1'
+  gem 'capybara', '~> 2.2.0'
 end
 
 # deploy on heroku.com
 gem 'rails_12factor', group: :production
+
+# coveralls
+gem 'coveralls', require: false

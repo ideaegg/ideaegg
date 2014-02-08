@@ -1,4 +1,5 @@
 Fabricator(:idea) do
-  title       "MyString"
-  description "MyText"
+  title { sequence(:title) { |i| "title-#{i}"} }
+  description { sequence(:description ) { |i| "description -#{i}"} }
+  user
 end

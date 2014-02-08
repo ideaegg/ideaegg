@@ -1,0 +1,19 @@
+doctype html
+html
+  head
+    meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    title #{content_for?(:title) ? yield(:title) : "Ideaegg"}
+    meta name="description" content="#{content_for?(:description) ? yield(:description) : 'Ideaegg'}"
+    = stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true
+    = javascript_include_tag "application", "data-turbolinks-track" => true
+    = csrf_meta_tags
+  body
+    header
+      = render 'layouts/navigation'
+    main role="main"
+      .container
+        = render 'layouts/messages'
+        = yield
+    footer.text-center
+      .container
+        p.text-muted Copyright © 2013  ❤  Ideaegg

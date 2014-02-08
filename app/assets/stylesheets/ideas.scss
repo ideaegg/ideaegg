@@ -1,0 +1,235 @@
+.idea-item {
+  margin: 0.7em 0;
+  padding: 0.7em;
+  background: hsla(0, 100%, 99%, 0.8);
+  border: 1px solid hsla(0, 0%, 90%, 1);
+  border-bottom: 3px solid hsla(0, 0%, 85%, 1);
+  border-radius: $border-radius-large;
+  height: 15em;
+
+  &:hover {
+    background: hsla(0, 100%, 99%, 1);
+    border-color: hsla(0, 0%, 80%, 1);
+  }
+
+  .entry {
+    display: block;
+    text-decoration: none;
+    height: 12em;
+    color: #333;
+
+    .status {
+      display: inline-block;
+      width: 0.7em;
+      height: 0.7em;
+      &.status-idea {
+        background: $idea-color;
+      }
+      &.status-egg {
+        background: $egg-color;
+      }
+    }
+
+    .tag {
+      position: absolute;
+      padding: 0 0.4em;
+      border-radius: 0 $border-radius-base $border-radius-base 0;
+      margin-left: -0.7em;
+      background: hsla(352, 85%, 59%, 0.901961);
+      color: hsla(100, 100%, 100%, 1);
+    }
+
+    .header {
+      font-size: 1.5em;
+      font-weight: bold;
+      max-height: 3em;
+      overflow: hidden;
+    }
+
+    .main {
+      padding: 1.7em 0 1.3em 0;
+      max-height: 6em;
+      overflow: hidden;
+    }
+  }
+
+  .meta {
+    color: hsla(0, 0%, 60%, 1);
+
+    a {
+      color: hsla(0, 0%, 60%, 1);
+
+      &:hover {
+        color: hsla(0, 0%, 50%, 1);
+      }
+    }
+
+    .actions {
+      span {
+        padding: 0 0.3em;
+      }
+    }
+
+    .author {
+      vertical-align: middle;
+      span {
+        padding: 0 0.3em;
+      }
+    }
+  }
+
+}
+
+
+.idea {
+  .idea-content {
+    border: 1px solid hsla(0, 0%, 90%, 1);
+    padding: 1em;
+    h1 {
+      border-bottom: 1px solid hsla(0, 0%, 70%, 0.7);
+      padding: 0.3em 0;
+      font-size: 2em;
+      font-weight: bold;
+      padding: 0.5em 0;
+      margin: 0 0 0.3em 0;
+    }
+  }
+  .idea-comments {
+    margin: 3em 0 7em 0;
+    color: hsla(0, 0%, 7%, 1);
+    .comment-count {
+      font-size: 125%;
+      font-weight: bold;
+      padding-bottom: 0.5em;
+      border-bottom: 1px solid hsla(0, 0%, 80%, 0.7);
+    }
+    .no-comment {
+      @extend .text-muted;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    a {
+      color: hsla(0, 0%, 60%, 1);
+      &:hover {
+        color: hsla(0, 0%, 40%, 1);
+      }
+    }
+    .comment {
+      margin: 1em 0;
+      border-bottom: 1px solid hsla(0, 0%, 80%, 0.7);
+      .comment-author {
+        font-size: 100%;
+        font-weight: bold;
+
+        img {
+          @extend .pull-left;
+          padding-right: 7px;
+        }
+      }
+      .comment-content {
+        word-break: break-all;
+        margin: 0 0.5em 0 39px;
+      }
+      .comment-meta {
+        font-size: .75em;
+        color: hsla(0, 0%, 60%, 1);
+        margin: .3em 0 1em 39px;
+        &:hover {
+          color: hsla(0, 0%, 40%, 1);
+        }
+      }
+    }
+    .new-comment {
+      .author {
+        @extend .pull-left;
+        img {
+          padding-right: 7px;
+        }
+      }
+      .new-comment-form {
+        margin-left: 39px;
+      }
+    }
+  }
+  .info , .show-actions, .show-status {
+    @media (min-width: $screen-md-min) {
+      width: 80%;
+    }
+  }
+  .show-actions {
+    margin-bottom: 1em;
+  }
+
+  .info {
+    padding: 0 1em;
+    margin-bottom: 1em;
+    border: 1px solid hsla(0, 0%, 90%, 1);
+    border-bottom: 3px solid hsla(0, 0%, 85%, 1);
+    border-radius: $border-radius-large;
+
+    .attribution {
+      padding: 1em 0.5em;
+
+      .avatar {
+        display: inline-block;
+      }
+
+      a {
+        color: hsla(0, 0%, 40%, 1);
+        text-decoration: none;
+
+        &:hover {
+          color: hsla(0, 0%, 20%, 1);
+        }
+      }
+
+      .author {
+        padding-left: 0.5em;
+        display: inline-block;
+        vertical-align: bottom;
+        a {
+          padding-left: 0.3em;
+          font-weight: bold;
+        }
+
+        .created_at {
+          padding: 0.3em 0;
+        }
+      }
+    }
+
+  }
+}
+
+.bubble {
+  padding: 0 1em;
+  margin-bottom: 1em;
+  border: 1px solid hsla(0, 0%, 90%, 1);
+  border-bottom: 3px solid hsla(0, 0%, 85%, 1);
+  border-radius: $border-radius-large;
+
+  .bubble-content {
+
+    li {
+      &:first-child {
+        border: none;
+      }
+      &:hover a {
+        color: hsla(0, 0%, 40%, 1);
+      }
+
+      padding: 0.7em 0;
+      list-style: none;
+      border-top: 1px solid hsla(0, 0%, 90%, 1);
+      font-weight: bold;
+
+      a {
+        color: hsla(0, 0%, 60%, 1);
+      }
+      span {
+        @extend .pull-right;
+        font-size: 1.1em;
+      }
+    }
+  }
+}
