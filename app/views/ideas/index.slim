@@ -10,6 +10,7 @@
           .main= truncate(strip_tags(idea.description), length: 70)
         .meta
           .actions.pull-right
+            = comment_tag(idea)
             = like_tag(idea)
           = link_to idea.user, class: 'author' do
             = avatar_for(idea.user, size: 16)

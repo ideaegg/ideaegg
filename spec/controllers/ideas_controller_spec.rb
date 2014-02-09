@@ -64,6 +64,13 @@ describe IdeasController do
       get :show, id: idea.id
       assigns(:idea).should == idea
     end
+    it 'incresaes the hits_count' do
+      sign_in user
+      expect {
+        get :show, id: idea.id
+        idea.reload
+      }.to change { idea.hits_count }.by(1)
+    end
   end
 
   describe 'GET edit' do

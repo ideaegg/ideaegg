@@ -37,6 +37,10 @@
           .created_at= @idea.created_at.strftime('%b,%d %Y')
     .bubble.show-status
       .bubble-content
+        li
+          = link_to '#' do
+            = fa_icon 'eye', text: 'Hits'
+          span= @idea.hits_count
         = like_button(@idea)
     .show-actions
       - if @idea.belongs_to_user?(current_user)

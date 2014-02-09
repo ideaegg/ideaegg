@@ -7,7 +7,7 @@
 #  email       :string(255)
 #  created_at  :datetime
 #  updated_at  :datetime
-#  likes_count :integer
+#  likes_count :integer          default(0)
 #
 
 class User < ActiveRecord::Base

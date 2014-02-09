@@ -23,6 +23,7 @@ class IdeasController < ApplicationController
   end
 
   def show
+    @idea.increment!(:hits_count)
     @new_comment = Comment.new
     @comments = @idea.comments.order("created_at asc")
   end

@@ -27,4 +27,11 @@ module IdeasHelper
 
     content_tag :li, raw(like_label)
   end
+
+  def comment_tag(idea)
+    return unless idea
+    return if idea.comments.count.zero?
+
+    content_tag :span, fa_icon('comments', text: idea.comments.count)
+  end
 end
