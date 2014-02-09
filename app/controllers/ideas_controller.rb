@@ -4,7 +4,7 @@ class IdeasController < ApplicationController
   before_action :correct_user, only: [:edit, :update, :destroy]
 
   def index
-    @ideas = Idea.order('likes_count DESC').all
+    @ideas = Idea.order('likes_count DESC')
   end
 
   def new
@@ -23,6 +23,7 @@ class IdeasController < ApplicationController
   end
 
   def show
+    @idea.increment!(:hits_count)
     @new_comment = Comment.new
     @comments = @idea.comments.order("created_at asc")
   end

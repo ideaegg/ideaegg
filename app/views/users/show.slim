@@ -15,6 +15,9 @@
         = link_to @user, class: 'vcard-stat' do
           strong.vcard-stat-count= @user.ideas.count
           | Ideas
+        = link_to @user, class: 'vcard-stat' do
+          strong.vcard-stat-count= @user.like_ideas.count
+          | Likes
 
   .col-md-7
     .row
