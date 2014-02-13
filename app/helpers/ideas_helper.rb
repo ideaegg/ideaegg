@@ -23,7 +23,6 @@ module IdeasHelper
                    end
                  end
 
-    like_label << content_tag(:span, idea.likes_count)
 
     content_tag :li, raw(like_label)
   end
@@ -33,5 +32,17 @@ module IdeasHelper
     return if idea.comments.count.zero?
 
     content_tag :span, fa_icon('comments', text: idea.comments.count)
+  end
+
+  def share_tag
+    html = %Q(
+      <div class="jiathis_style_24x24">
+        <a class="jiathis_button_tsina"></a>
+	      <a class="jiathis_button_weixin"></a>
+      </div>
+      <script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1361540932468224" charset="utf-8"></script>
+    )
+
+    content_tag :div, raw(html)
   end
 end
