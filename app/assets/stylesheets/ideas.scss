@@ -85,6 +85,7 @@
   .idea-content {
     border: 1px solid hsla(0, 0%, 90%, 1);
     padding: 1em;
+    padding-bottom: 2em;
     h1:first-child {
       border-bottom: 1px solid hsla(0, 0%, 70%, 0.7);
       padding: 0.3em 0;
@@ -95,6 +96,10 @@
     }
     img {
       max-width: 100%;
+    }
+
+    .idea-share {
+      float: right;
     }
   }
   .idea-comments {

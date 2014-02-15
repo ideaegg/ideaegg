@@ -3,8 +3,8 @@
     .idea-content
       h1= @idea.title
       p= @idea.description.html_safe
-    .idea-share
-      = share_tag
+      .idea-share
+        = share_tag
     .idea-comments
       - if @comments.blank?
         .no-comment 暂无评论。
