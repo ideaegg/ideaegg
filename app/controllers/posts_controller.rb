@@ -25,6 +25,18 @@ class PostsController < ApplicationController
   def show
   end
 
+  def edit
+  end
+
+  def update
+    if @post.update(post_params)
+      flash[:success] = "Post was successfully updated."
+      redirect_to @post
+    else
+      render 'edit'
+    end
+  end
+
   def destroy
     @post.destroy
     redirect_to root_path
@@ -38,7 +50,10 @@ class PostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
-      params.require(:post).permit(:content)
+      params.require(:post).permit(:title, :content)
     end
 
+    def correct_user
+      redirect_to root_url unless current_user.posts.include?(@post)
+    end
 end

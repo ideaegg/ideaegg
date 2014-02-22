@@ -1,6 +1,7 @@
 .row.post
   .col-md-7.col-md-offset-1
     .post-content
+      h1= @post.title
       p= @post.content.html_safe
   .col-md-3
     .info
