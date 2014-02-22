@@ -9,3 +9,5 @@
 #= require posts
 
 #= require turbolinks
+
+$('.dropdown-toggle').dropdown()

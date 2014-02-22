@@ -13,10 +13,12 @@ nav.navbar.navbar-default role="navigation"
       - if current_user
         ul.nav.navbar-nav.navbar-right
           li.dropdown
-            = link_to fa_icon('magic', text: 'New Idea'), new_idea_path
+            = link_to fa_icon('magic', text: 'New'), '#', :'data-toggle'=> 'dropdown'
             ul.dropdown-menu
               li
-                = link_to fa_icon('pencil', text: 'New Post'), new_post_path
+                = link_to fa_icon('lightbulb-o', text: 'Idea'), new_idea_path
+              li
+                = link_to fa_icon('bullhorn', text: 'Post'), new_post_path
           li
             = link_to user_path(current_user), class: 'name' do
               = gravatar_for(current_user, size: 20)
