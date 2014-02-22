@@ -13,6 +13,7 @@ Ideaegg::Application.routes.draw do
       delete 'like' => 'likes#destroy', as: :unlike
     end
   end
+  resources :posts
 
   get '/uploads/uptoken' => 'uploads#uptoken'
 
