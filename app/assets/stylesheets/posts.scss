@@ -1,0 +1,21 @@
+// Place all the styles related to the posts controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import "ideas";
+
+.post-item {
+  @extend .idea-item;
+}
+
+.post {
+  @extend .idea;
+
+  .post-content {
+    @extend .idea-content;
+  }
+
+  .post-comment {
+    @extend .idea-comment;
+  }
+}

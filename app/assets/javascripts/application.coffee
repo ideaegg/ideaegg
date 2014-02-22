@@ -6,5 +6,6 @@
 #= require summernote.min
 #= require ideas
 #= require qiniu
+#= require posts
 
 #= require turbolinks

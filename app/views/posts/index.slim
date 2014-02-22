@@ -3,11 +3,8 @@
     .col-md-4
       .post-item
         = link_to post, class: 'entry' do
-          .main= post.content
+          .main= post.content.html_safe
         .meta
-          .actions.pull-right
-            = comment_tag(post)
-            = like_tag(post)
           = link_to post.user, class: 'author' do
             = avatar_for(post.user, size: 16)
             span= post.user.name

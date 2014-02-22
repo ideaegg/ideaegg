@@ -16,6 +16,7 @@ class User < ActiveRecord::Base
   has_many :comments
   has_many :likes, dependent: :destroy
   has_many :like_ideas, through: :likes, source: :idea, dependent: :destroy
+  has_many :posts, dependent: :destroy
 
   accepts_nested_attributes_for :authentications
 

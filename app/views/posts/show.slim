@@ -1,0 +1,21 @@
+.row.post
+  .col-md-7.col-md-offset-1
+    .post-content
+      p= @post.content.html_safe
+  .col-md-3
+    .info
+      .attribution
+        = link_to @post.user, class: 'avatar' do
+          = avatar_for(@post.user, size: 57)
+        .author
+          span
+            | By
+            = link_to @post.user, class: 'name' do
+              span= @post.user.name
+          .created_at= @post.created_at.strftime('%b,%d %Y')
+    .show-actions
+      - if @post.belongs_to_user?(current_user)
+        = link_to edit_post_path(@post), class: 'btn btn-primary btn-block' do
+          = fa_icon 'edit', text: 'Edit'
+        = link_to @post, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-block' do
+          = fa_icon 'trash-o', text: 'Delete'

@@ -3,4 +3,8 @@ class Post < ActiveRecord::Base
 
   validates :user_id, presence: true
   validates :content, presence: true
+
+  def belongs_to_user?(u)
+    user == u
+  end
 end
