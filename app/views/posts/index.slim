@@ -1,10 +1,11 @@
 .row
   - @posts.each do |post|
-    .col-md-4
-      .post-item
-        = link_to post, class: 'entry' do
-          .main= post.content.html_safe
-        .meta
-          = link_to post.user, class: 'author' do
-            = avatar_for(post.user, size: 16)
-            span= post.user.name
+    .container
+      .col-sm-10
+        .post-item
+          = link_to post, class: 'entry' do
+            .main= post.content.html_safe
+          .meta
+            = link_to post.user, class: 'author' do
+              = avatar_for(post.user, size: 16)
+              span= post.user.name
