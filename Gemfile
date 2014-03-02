@@ -106,3 +106,5 @@ gem 'rails_12factor', group: :production
 gem 'coveralls', require: false
 
 gem 'qiniu-rs'
+
+gem 'acts-as-taggable-on'
