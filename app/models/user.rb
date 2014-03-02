@@ -44,4 +44,7 @@ class User < ActiveRecord::Base
   def like?(idea)
     idea && like_ideas.include?(idea)
   end
+
+  # tag
+  acts_as_tagger
 end

@@ -4,3 +4,6 @@
 .form-group
   = f.label :description
   = f.text_area :description, placeholder: 'Idea description...', rows: 13, class: 'form-control'
+.form-group
+  = f.label :tags
+  = f.text_area :tag_list, placeholder: 'Idea tags, splitted by comma...', class: 'form-control'

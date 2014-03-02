@@ -44,6 +44,9 @@
             = fa_icon 'eye', text: 'Hits'
           span= @idea.hits_count
         = like_button(@idea)
+    .bubble.show-tags
+      .bubble-content
+        = p @idea.tag_list
     .show-actions
       - if @idea.belongs_to_user?(current_user)
         = link_to edit_idea_path(@idea), class: 'btn btn-primary btn-block' do
