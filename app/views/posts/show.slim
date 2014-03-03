@@ -14,6 +14,9 @@
             = link_to @post.user, class: 'name' do
               span= @post.user.name
           .created_at= @post.created_at.strftime('%b,%d %Y')
+    .bubble.show-tags
+      .bubble-content
+        p= @post.tag_list
     .show-actions
       - if @post.belongs_to_user?(current_user)
         = link_to edit_post_path(@post), class: 'btn btn-primary btn-block' do

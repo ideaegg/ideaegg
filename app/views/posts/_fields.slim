@@ -4,3 +4,6 @@
 .form-group
   = f.label :content
   = f.text_area :content, placeholder: 'Post content...', rows: 13, class: 'form-control'
+.form-group
+  = f.label :tags
+  = f.text_area :tag_list, placeholder: 'Post tags, splitted by comma...', class: 'form-control'

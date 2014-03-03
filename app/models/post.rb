@@ -7,4 +7,7 @@ class Post < ActiveRecord::Base
   def belongs_to_user?(u)
     user == u
   end
+
+  # tag
+  acts_as_taggable
 end
