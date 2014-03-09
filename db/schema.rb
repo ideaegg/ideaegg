@@ -59,6 +59,19 @@ ActiveRecord::Schema.define(version: 20140311021646) do
   add_index "likes", ["idea_id"], name: "index_likes_on_idea_id"
   add_index "likes", ["user_id"], name: "index_likes_on_user_id"
 
+  create_table "notifications", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "subject_id"
+    t.string   "subject_type"
+    t.string   "message"
+    t.boolean  "read",         default: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "notifications", ["subject_id", "subject_type"], name: "index_notifications_on_subject_id_and_subject_type"
+  add_index "notifications", ["user_id"], name: "index_notifications_on_user_id"
+
   create_table "posts", force: true do |t|
     t.string   "title"
     t.text     "content"
