@@ -21,9 +21,29 @@ class Idea < ActiveRecord::Base
   validates :user_id, presence: true
   validates :title, presence: true, length: { maximum: 140 }
   validates :description, presence: true
+  
+  after_create :create_mention_notifications
 
   def belongs_to_user?(u)
     user == u
+  end
+  
+  def mention_users
+    []
+  end
+  
+  def create_mention_notifications
+    users = mention_users
+    
+    users.each do |user|
+      create_mention_notification user
+    end
+  end
+  
+  def create_mention_notification(user)
+    Notification.create(user: user,
+              subject: self,
+              type: 'mention')
   end
 
   #tag

@@ -17,6 +17,17 @@ class Comment < ActiveRecord::Base
   validates :user_id, presence: true
   validates :idea_id, presence: true
   validates :content, presence: true
+  
+  after_create :create_mention_notifications, :create_comment_notifications
+  
+  def create_mention_notifications
+  end
+  
+  def create_comment_notifications
+    Notification.create(user: idea.user,
+                        subject: self,
+                        name: 'comment')
+  end
 
   def user_name
     user.name
