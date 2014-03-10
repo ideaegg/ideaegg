@@ -43,7 +43,7 @@ class Idea < ActiveRecord::Base
   def create_mention_notification(user)
     Notification.create(user: user,
               subject: self,
-              type: 'mention')
+              name: 'mention')
   end
 
   #tag

@@ -63,7 +63,7 @@ ActiveRecord::Schema.define(version: 20140311021646) do
     t.integer  "user_id"
     t.integer  "subject_id"
     t.string   "subject_type"
-    t.string   "type"
+    t.string   "name"
     t.string   "message"
     t.boolean  "read",         default: false
     t.datetime "created_at"

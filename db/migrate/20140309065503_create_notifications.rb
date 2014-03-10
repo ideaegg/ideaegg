@@ -3,7 +3,7 @@ class CreateNotifications < ActiveRecord::Migration
     create_table :notifications do |t|
       t.belongs_to :user, index: true
       t.belongs_to :subject, polymorphic: true, index: true
-      t.string :type
+      t.string :name
       t.string :message
       t.boolean :read, default: false
 

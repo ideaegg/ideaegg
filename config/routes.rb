@@ -1,4 +1,5 @@
 Ideaegg::Application.routes.draw do
+  get "notifications/index"
   match '/auth/:provider/callback' => 'sessions#create', via: [:get, :post]
   delete '/log_out' => 'sessions#destroy', as: :log_out
   get '/login' => 'sessions#new', as: :login
@@ -14,6 +15,8 @@ Ideaegg::Application.routes.draw do
     end
   end
   resources :posts
+  
+  resources :notifications, only: [:index]
 
   get '/uploads/uptoken' => 'uploads#uptoken'
 

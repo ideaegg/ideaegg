@@ -1,0 +1,17 @@
+- comment = notification.subject
+
+li.list-group-item.notification id="notification_#{notification.id}" class=('read' if notification.read)
+  a.list-group-item-link href=comment_link(comment)
+    .list-group-item-avatar
+      = avatar_for(comment.user, size: 16)
+    .list-group-item-content
+      .list-group-item-heading
+        b = comment.user.name
+        '
+        = t '.commented_on'
+        '
+        b = comment_title(comment)
+        '
+        = time_ago_tag comment.created_at
+      .text-muted
+        = truncate comment.content, length: 140

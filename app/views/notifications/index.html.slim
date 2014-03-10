@@ -1,0 +1,14 @@
+.row
+  .col-md-9.col-md-pull-3
+    .panel.panel-notification
+	  .panel-heading
+	    h3.panel-title
+		  =p 'notifications'
+	  .panel-body
+	    .ul.list-group.list-group-notification
+		  - if @notifications.any?
+		    - @notifications.each do |notification|
+			  = render "notifications/notification/#{notification.name}", notification: notification
+		  - else 
+		    li.list-group-item.text-center.text-muted.empty-message
+			  =p "No notifications."
