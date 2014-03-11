@@ -26,9 +26,11 @@ class Comment < ActiveRecord::Base
   end
   
   def create_comment_notifications
-    Notification.create(user: idea.user,
-                        subject: self,
-                        name: 'comment')
+    if idea.user != self.user
+      Notification.create(user: idea.user,
+                          subject: self,
+                          name: 'comment')
+    end
   end
 
   def user_name
