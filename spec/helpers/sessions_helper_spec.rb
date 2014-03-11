@@ -14,6 +14,10 @@ describe SessionsHelper do
       helper.sign_in(@user)
       session[:current_user_id].should == @user.id
     end
+    it 'remembers the user' do
+      helper.sign_in(@user)
+      expect(cookies[:remember_token]).to eq @user.remember_token
+    end
   end
 
   describe 'current_user' do
@@ -48,6 +52,10 @@ describe SessionsHelper do
     it 'should destroy current_user session' do
       helper.sign_out
       session[:current_user].should be_nil
+    end
+    it 'deletes remember_token' do
+      helper.sign_out
+      expect(cookies[:remember_token]).to be_nil
     end
   end
 end
