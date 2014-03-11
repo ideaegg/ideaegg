@@ -13,6 +13,9 @@ describe User do
 
   describe 'Respond to' do
     it { should respond_to(:like?) }
+    it { should respond_to(:generate_remember_token) }
+    it { should respond_to(:remember_me) }
+    it { should respond_to(:remember_me!) }
   end
 
   describe 'Assoications' do
@@ -61,6 +64,36 @@ describe User do
     it 'does not like the idea' do
       user.likes.destroy_all
       user.like?(idea).should == false
+    end
+  end
+
+  describe '#remember_me' do
+    let(:user) { Fabricate(:user) }
+
+    it 'adds remember_token if remember_token doesnt exist' do
+      user.remember_me
+      expect(user.remember_token).to_not be_nil
+    end
+    it 'doesnt change remember_token if remember_token exists' do
+      user.remember_me
+      expect {
+        user.remember_me
+      }.to_not change(user, :remember_token)
+    end
+  end
+
+  describe '#remember_me!' do
+    let(:user) { Fabricate(:user) }
+
+    it 'adds remember_token to user' do
+      user.remember_me!
+      expect(user.remember_token).to_not be_nil
+    end
+    it 'changes remember_token even if remember_token exists' do
+      user.remember_me!
+      expect {
+        user.remember_me!
+      }.to change(user, :remember_token)
     end
   end
 end

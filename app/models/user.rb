@@ -47,4 +47,20 @@ class User < ActiveRecord::Base
 
   # tag
   acts_as_tagger
+
+  # Remember me
+  def generate_remember_token
+    begin
+      token = SecureRandom.urlsafe_base64(15).tr('lIO0', 'fAhz')
+    end while self.class.where({ remember_token: token }).exists?
+    token
+  end
+  def remember_me
+    self.remember_token ||= generate_remember_token
+    save(validate: false) if changed?
+  end
+  def remember_me!
+    self.remember_token = generate_remember_token
+    save(validate: false)
+  end
 end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140302012740) do
+ActiveRecord::Schema.define(version: 20140311021646) do
 
   create_table "authentications", force: true do |t|
     t.string   "provider"
@@ -92,7 +92,10 @@ ActiveRecord::Schema.define(version: 20140302012740) do
     t.string   "email"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "likes_count", default: 0
+    t.integer  "likes_count",    default: 0
+    t.string   "remember_token"
   end
+
+  add_index "users", ["remember_token"], name: "index_users_on_remember_token", unique: true
 
 end
