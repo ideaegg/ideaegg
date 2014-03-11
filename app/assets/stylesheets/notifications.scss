@@ -1,0 +1,144 @@
+// Place all the styles related to the notifications controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.panel-notification {
+  .panel-heading {
+    margin: 0 -1px;
+    padding: 10px 16px;
+    border-bottom: 1px solid #eee;
+
+    .nav li a {
+      padding: $padding-base-vertical $padding-base-horizontal;
+    }
+
+    .breadcrumb {
+      padding: 0;
+      margin: 0;
+      background: transparent;
+
+      .active {
+        color: $gray-dark;
+      }
+    }
+  }
+
+  .panel-title {
+    line-height: 35px;
+    font-size: 1.2em;
+  }
+
+  .panel-footer {
+    margin: 0 -1px;
+    padding: 10px 16px;
+    border-top: 1px solid #eee;
+    background: transparent;
+  }
+}
+
+.list-group-notification {
+  margin: -15px -16px;
+  padding: 0;
+
+  .list-group-item {
+    padding: 15px 16px;
+    border: none;
+    border-bottom: 1px solid #eee;
+    margin-bottom: 0;
+
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+
+  .list-group-item-remove {
+    margin-top: -$padding-base-vertical;
+    margin-right: -$padding-base-horizontal;
+    float: right;
+    color: $gray-light;
+
+    &:hover {
+      color: $gray-dark;
+      box-shadow: none;
+    }
+  }
+
+  .list-group-item-link {
+    margin: -15px -16px;
+    padding: 15px 16px;
+    display: block;
+    color: #333;
+    @include clearfix();
+
+    &:hover {
+      text-decoration: none;
+      background: #f9f9f9;
+    }
+  }
+
+  .list-group-item-icon {
+    float: left;
+  }
+
+  .list-group-item-icon + .list-group-item-content {
+    margin-left: 24px;
+  }
+
+  .list-group-item-avatar {
+    float: left;
+  }
+
+  .list-group-item-avatar + .list-group-item-content {
+    margin-left: 60px;
+  }
+
+  .list-group-item-content {
+    overflow: hidden;
+  }
+
+  .list-group-item-actions {
+    margin-top: $padding-base-vertical;
+    margin-right: -$padding-base-horizontal;
+    margin-bottom: -$padding-base-vertical;
+    margin-left: -$padding-base-horizontal;
+
+    .btn {
+      color: $gray-light;
+
+      &:hover {
+        color: $gray-dark;
+      }
+
+      &:active {
+        @include box-shadow(none);
+      }
+    }
+
+    .btn-group.open .dropdown-toggle {
+      color: #555;
+      @include box-shadow(none);
+    }
+  }
+}
+
+.notifications-bell {
+  position: relative;
+
+  .badge {
+    background: $brand-primary;
+
+    @media (min-width: $grid-float-breakpoint) {
+      position: absolute;
+      top: 5px;
+      right: 5px;
+    }
+  }
+}
+
+.notification {
+  &.read {
+    .list-group-item-link {
+      color: #999;
+    }
+  }
+}

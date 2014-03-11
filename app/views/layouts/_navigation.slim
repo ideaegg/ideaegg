@@ -19,6 +19,11 @@ nav.navbar.navbar-default role="navigation"
                 = link_to fa_icon('lightbulb-o', text: 'Idea'), new_idea_path
               li
                 = link_to fa_icon('bullhorn', text: 'Post'), new_post_path
+          li class=('active' if controller_name == 'notifications')
+            a.notifications-bell href=notifications_path
+              i.fa.fa-bell-o
+              - if unread_notifications_count > 0
+                .badge = unread_notifications_count > 99 ? '99+' : unread_notifications_count
           li
             = link_to user_path(current_user), class: 'name' do
               = gravatar_for(current_user, size: 20)

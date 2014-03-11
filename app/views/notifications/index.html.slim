@@ -1,9 +1,9 @@
 .row
-  .col-md-9.col-md-pull-3
+  .col-md-10
     .panel.panel-notification
 	  .panel-heading
 	    h3.panel-title
-		  =p 'notifications'
+		  =p 'Notifications'
 	  .panel-body
 	    .ul.list-group.list-group-notification
 		  - if @notifications.any?
@@ -12,3 +12,5 @@
 		  - else 
 		    li.list-group-item.text-center.text-muted.empty-message
 			  =p "No notifications."
+			  
+- current_user.notifications.unread.where(id: @notifications.pluck(:id)).update_all(read: true)

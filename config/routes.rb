@@ -16,7 +16,11 @@ Ideaegg::Application.routes.draw do
   end
   resources :posts
   
-  resources :notifications, only: [:index]
+  resources :notifications, only: [:index] do
+    collection do
+      post :mark
+    end
+  end
 
   get '/uploads/uptoken' => 'uploads#uptoken'
 
