@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140311021646) do
+ActiveRecord::Schema.define(version: 20140316032230) do
 
   create_table "authentications", force: true do |t|
     t.string   "provider"
@@ -20,6 +20,16 @@ ActiveRecord::Schema.define(version: 20140311021646) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "collections", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "idea_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "collections", ["idea_id"], name: "index_collections_on_idea_id"
+  add_index "collections", ["user_id"], name: "index_collections_on_user_id"
 
   create_table "comments", force: true do |t|
     t.text     "content"
@@ -35,10 +45,13 @@ ActiveRecord::Schema.define(version: 20140311021646) do
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "likes_count", default: 0
-    t.integer  "hits_count",  default: 0
+    t.integer  "likes_count",       default: 0
+    t.integer  "hits_count",        default: 0
+    t.integer  "collections_count", default: 0
+    t.datetime "deleted_at"
   end
 
+  add_index "ideas", ["deleted_at"], name: "index_ideas_on_deleted_at"
   add_index "ideas", ["user_id", "created_at"], name: "index_ideas_on_user_id_and_created_at"
 
   create_table "identities", force: true do |t|
@@ -106,8 +119,9 @@ ActiveRecord::Schema.define(version: 20140311021646) do
     t.string   "email"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "likes_count",    default: 0
+    t.integer  "likes_count",       default: 0
     t.string   "remember_token"
+    t.integer  "collections_count", default: 0
   end
 
   add_index "users", ["remember_token"], name: "index_users_on_remember_token", unique: true

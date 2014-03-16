@@ -12,28 +12,84 @@
           span.join-label Join on
           span.join-date= @user.created_at.strftime('%b,%d %Y')
       .vcard-stats
-        = link_to @user, class: 'vcard-stat' do
+        = link_to user_path(@user, :show => 'ideas'), class: 'vcard-stat' do
           strong.vcard-stat-count= @user.ideas.count
           | Ideas
-        = link_to @user, class: 'vcard-stat' do
+        = link_to user_path(@user, :show => 'likes'), class: 'vcard-stat' do
           strong.vcard-stat-count= @user.like_ideas.count
           | Likes
+        = link_to user_path(@user, :show => 'collections'), class: 'vcard-stat' do
+          strong.vcard-stat-count= @user.collect_ideas.with_deleted.count
+          | Collections 
 
   .col-md-7
     .row
-      - @ideas.each do |idea|
-        .col-md-6
-          .idea-item
-            = link_to idea, class: 'entry' do
-              .status.pull-right *{class:  ['status-idea', 'status-egg'].sample}
-              .header= idea.title
-              - if [true, false].sample
-                span.tag= ['Best of', 'Hot'].sample
-              .main= truncate(strip_tags(idea.description), length: 70)
-            .meta
-              .actions.pull-right
-                = like_tag(idea)
-              = link_to idea.user, class: 'author' do
-                = avatar_for(idea.user, size: 16)
-                span= idea.user.name
+      - if @show == 'ideas'
+        - @ideas.each do |idea|
+          .col-md-6
+            .idea-item
+              = link_to idea, class: 'entry' do
+                .status.pull-right *{class:  ['status-idea', 'status-egg'].sample}
+                .header= idea.title
+                - if [true, false].sample
+                  span.tag= ['Best of', 'Hot'].sample
+                .main= truncate(strip_tags(idea.description), length: 70)
+              .meta
+                .actions.pull-right
+                  = like_tag(idea)
+                  = collect_tag(idea)
+                = link_to idea.user, class: 'author' do
+                  = avatar_for(idea.user, size: 16)
+                  span= idea.user.name
+      - elsif @show == 'likes' 
+        - @user.like_ideas.each do |idea|
+          .col-md-6
+            .idea-item
+              = link_to idea, class: 'entry' do
+                .status.pull-right *{class:  ['status-idea', 'status-egg'].sample}
+                .header= idea.title
+                - if [true, false].sample
+                  span.tag= ['Best of', 'Hot'].sample
+                .main= truncate(strip_tags(idea.description), length: 70)
+              .meta
+                .actions.pull-right
+                  = like_tag(idea)
+                  = collect_tag(idea)
+                = link_to idea.user, class: 'author' do
+                  = avatar_for(idea.user, size: 16)
+                  span= idea.user.name
 
+      - elsif @show == 'collections' 
+        - @user.collect_ideas.with_deleted.each do |idea|
+          .col-md-6
+            .idea-item
+              = link_to idea, class: 'entry' do
+                .status.pull-right *{class:  ['status-idea', 'status-egg'].sample}
+                .header= idea.title
+                - if [true, false].sample
+                  span.tag= ['Best of', 'Hot'].sample
+                .main= truncate(strip_tags(idea.description), length: 70)
+              .meta
+                .actions.pull-right
+                  = like_tag(idea)
+                  = collect_tag(idea)
+                = link_to idea.user, class: 'author' do
+                  = avatar_for(idea.user, size: 16)
+                  span= idea.user.name
+      - else
+        - @ideas.each do |idea|
+          .col-md-6
+            .idea-item
+              = link_to idea, class: 'entry' do
+                .status.pull-right *{class:  ['status-idea', 'status-egg'].sample}
+                .header= idea.title
+                - if [true, false].sample
+                  span.tag= ['Best of', 'Hot'].sample
+                .main= truncate(strip_tags(idea.description), length: 70)
+              .meta
+                .actions.pull-right
+                  = like_tag(idea)
+                  = collect_tag(idea)
+                = link_to idea.user, class: 'author' do
+                  = avatar_for(idea.user, size: 16)
+                  span= idea.user.name

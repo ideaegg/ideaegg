@@ -108,3 +108,6 @@ gem 'coveralls', require: false
 gem 'qiniu-rs'
 
 gem 'acts-as-taggable-on'
+
+# soft delete idea
+gem 'paranoia', :github => 'radar/paranoia', :branch => 'rails4'

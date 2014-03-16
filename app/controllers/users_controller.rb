@@ -11,6 +11,9 @@ class UsersController < ApplicationController
   # GET /users/1.json
   def show
     @ideas = @user.ideas
+    if params[:show]
+      @show = params[:show]
+    end
   end
 
   # GET /users/new

@@ -8,6 +8,7 @@
 #  created_at  :datetime
 #  updated_at  :datetime
 #  likes_count :integer          default(0)
+#  collections_count :integer    default(0)
 #
 
 class User < ActiveRecord::Base
@@ -18,6 +19,8 @@ class User < ActiveRecord::Base
   has_many :like_ideas, through: :likes, source: :idea, dependent: :destroy
   has_many :posts, dependent: :destroy
   has_many :notifications
+  has_many :collections, dependent: :destroy
+  has_many :collect_ideas, through: :collections, source: :idea, dependent: :destroy
 
   accepts_nested_attributes_for :authentications
 
@@ -44,6 +47,10 @@ class User < ActiveRecord::Base
 
   def like?(idea)
     idea && like_ideas.include?(idea)
+  end
+
+  def collected?(idea)
+    idea && self.collect_ideas.with_deleted.include?(idea) 
   end
 
   # tag

@@ -12,6 +12,7 @@ module IdeasHelper
 
   def like_button(idea)
     return unless idea
+    return if idea.destroyed?
 
     like_label = if current_user && current_user.like?(idea)
                    link_to unlike_idea_path(idea), method: :delete do

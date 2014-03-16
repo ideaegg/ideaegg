@@ -12,6 +12,8 @@ Ideaegg::Application.routes.draw do
     member do
       post 'like' => 'likes#create', as: :like
       delete 'like' => 'likes#destroy', as: :unlike
+      post 'collect' => 'collections#create', as: :collect
+      delete 'collect' => 'collections#destroy', as: :not_collect
     end
   end
   resources :posts

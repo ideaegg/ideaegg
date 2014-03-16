@@ -15,6 +15,7 @@ describe Idea do
   describe 'Associations' do
     it { should have_many(:likes) }
     it { should have_many(:like_users) }
+    it { should have_many(:collections) }
   end
 
   it { should be_valid }

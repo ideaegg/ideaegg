@@ -131,6 +131,7 @@ describe IdeasController do
 
   describe 'DELETE destroy' do
     let!(:idea) { Fabricate(:idea, user: user) }
+    let(:another_user) { Fabricate(:user) }
 
     it 'deletes the idea' do
       sign_in user
@@ -146,5 +147,52 @@ describe IdeasController do
       response.should redirect_to(root_path)
     end
 
+    context "when user collected this idea"  do
+      before do
+        sign_in another_user
+        another_user.likes.create idea: idea
+        another_user.collections.create idea: idea
+        another_user.reload
+        sign_out
+      end
+      it "another_user's likes decrease" do
+        sign_in user
+        expect {
+          delete :destroy, id: idea.id
+          sign_out
+          sign_in another_user
+          another_user.reload
+        }.to change { another_user.like_ideas.count }.by(-1)
+      end
+      it "another_user's collections not decrease" do
+        sign_in user
+        expect {
+          delete :destroy, id: idea.id
+          sign_out
+          sign_in another_user
+          another_user.reload
+        }.to change { another_user.collect_ideas.with_deleted.count }.by(0)
+      end
+    end
+    context "when user collected own idea"  do
+      before do
+        sign_in user 
+        user.likes.create idea: idea
+        user.collections.create idea: idea
+        user.reload
+      end
+      it "another_user's likes decrease" do
+        expect {
+          delete :destroy, id: idea.id
+          user.reload
+        }.to change { user.like_ideas.count }.by(-1)
+      end
+      it "another_user's collections not decrease" do
+        expect {
+          delete :destroy, id: idea.id
+          user.reload
+        }.to change { user.collect_ideas.with_deleted.count }.by(-1)
+      end
+    end
   end
 end

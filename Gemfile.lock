@@ -1,3 +1,11 @@
+GIT
+  remote: git://github.com/radar/paranoia.git
+  revision: f2c95e9ad5e995f3734f66c6e706736eb493cb67
+  branch: rails4
+  specs:
+    paranoia (2.0.2)
+      activerecord (~> 4.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -293,6 +301,7 @@ DEPENDENCIES
   jquery-turbolinks
   omniauth-github
   omniauth-identity
+  paranoia!
   pg
   qiniu-rs
   quiet_assets

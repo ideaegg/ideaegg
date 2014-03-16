@@ -44,6 +44,7 @@
             = fa_icon 'eye', text: 'Hits'
           span= @idea.hits_count
         = like_button(@idea)
+        = collect_button(@idea)
     .bubble.show-tags
       .bubble-content
         p= @idea.tag_list
