@@ -22,7 +22,21 @@ class Comment < ActiveRecord::Base
   
   after_create :create_mention_notifications, :create_comment_notifications
   
+  def mention_users
+    return @mention_users if defined?(@mention_users)
+    
+    usernames = content.scan(/@(\w+)/).flatten.compact.uniq
+    @mention_users = User.where(name: usernames)
+  end
+  
   def create_mention_notifications
+    users = mention_users - [user]
+    
+    users.each do |user|
+      Notification.create(user: user,
+                          subject: self,
+                          name: 'mention')
+    end
   end
   
   def create_comment_notifications
