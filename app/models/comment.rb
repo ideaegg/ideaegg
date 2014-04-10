@@ -12,10 +12,12 @@
 
 class Comment < ActiveRecord::Base
   belongs_to :user
-  belongs_to :idea
+  belongs_to :commentable, polymorphic: true
 
-  validates :user_id, presence: true
-  validates :idea_id, presence: true
+  validates :commentable_type, presence: true
+  validates :commentable, presence: true
+  #validates :user_id, presence: true
+  #validates :idea_id, presence: true
   validates :content, presence: true
   
   has_many :notifications, as: 'subject'
@@ -40,8 +42,8 @@ class Comment < ActiveRecord::Base
   end
   
   def create_comment_notifications
-    if idea.user != self.user
-      Notification.create(user: idea.user,
+    if commentable.user != self.user
+      Notification.create(user: commentable.user,
                           subject: self,
                           name: 'comment')
     end

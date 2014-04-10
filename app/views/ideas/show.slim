@@ -17,7 +17,7 @@
         .new-comment
           = link_to current_user, class: 'author' do
             = avatar_for(current_user, size: 32)
-          = form_for([@idea, @new_comment], role: 'form', html: { class: 'new-comment-form' }) do |f|
+          = form_for(@idea.comments.new, url: idea_comments_path(@idea), role: 'form', html: { class: 'new-comment-form' }) do |f|
             = render 'shared/error_messages', object: f.object
             .form-group
               = f.text_area :content, placeholder: 'Comment here ...', rows: 3, class: 'form-control'

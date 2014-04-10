@@ -6,9 +6,12 @@ Ideaegg::Application.routes.draw do
   get '/auth/failure' => 'sessions#failure'
   get '/join' => 'identities#new', as: :join
 
-  resources :users
-  resources :ideas do
+  concern :commentable do
     resources :comments, only: [:create]
+  end
+  
+  resources :users
+  resources :ideas, concerns: [:commentable] do
     member do
       post 'like' => 'likes#create', as: :like
       delete 'like' => 'likes#destroy', as: :unlike
@@ -16,6 +19,7 @@ Ideaegg::Application.routes.draw do
       delete 'collect' => 'collections#destroy', as: :not_collect
     end
   end
+  
   resources :posts
   
   resources :notifications, only: [:index] do
