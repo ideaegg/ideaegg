@@ -20,7 +20,7 @@ Ideaegg::Application.routes.draw do
     end
   end
   
-  resources :posts
+  resources :posts, concerns: [:commentable] 
   
   resources :notifications, only: [:index] do
     collection do

@@ -3,6 +3,27 @@
     .post-content
       h1= @post.title
       p= @post.content.html_safe
+    .idea-comments
+      - if @comments.blank?
+        .no-comment 暂无评论。
+      - else
+        h2.comment-count #{@post.comments.count} Comments
+        .comments
+          = render @comments
+
+      - if signed_in?
+        .new-comment
+          = link_to current_user, class: 'author' do
+            = avatar_for(current_user, size: 32)
+          = form_for(@post.comments.new, url: post_comments_path(@post), role: 'form', html: { class: 'new-comment-form' }) do |f|
+            = render 'shared/error_messages', object: f.object
+            .form-group
+              = f.text_area :content, placeholder: 'Comment here ...', rows: 3, class: 'form-control'
+            .form-group
+              = f.submit 'Post', class: 'btn btn-small btn-primary pull-right', data: { disable_with: 'Posting' }
+      - else
+        p
+          | Please #{link_to 'Sign in', login_path} first.
   .col-md-3
     .info
       .attribution

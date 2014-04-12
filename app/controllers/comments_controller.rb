@@ -1,5 +1,5 @@
 class CommentsController < ApplicationController
-  before_action :find_idea
+  #before_action :find_idea
 
   def create
     resource, id = request.path.split('/')[1, 2]
