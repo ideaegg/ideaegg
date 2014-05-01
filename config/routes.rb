@@ -31,6 +31,6 @@ Ideaegg::Application.routes.draw do
 
   get '/uploads/uptoken' => 'uploads#uptoken'
 
-  root 'ideas#index'
+  root 'static_pages#home'
 
 end
