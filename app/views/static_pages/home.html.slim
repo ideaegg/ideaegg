@@ -1,0 +1,19 @@
+div#ideasCarousel.carousel.slide data-ride="carousel"
+  ol.carousel-indicators
+    - @ideas.each_with_index do |idea, index|
+      li data-target="#ideasCarousel" data-slide-to="#{index}" class=('active' if index == 0)
+  div.carousel-inner
+    - @ideas.each_with_index do |idea, index|
+      div.item class=('active' if index == 0)
+        img data-src="holder.js/900x500/auto/#777:#7a7a7a/text:First slide"
+        div.container
+          div.carousel-caption
+            h1= idea.title
+            p= truncate(strip_tags(idea.description), length: 70)
+            p
+              =link_to idea, class: "btn btn-lg btn-primary", role: "button" 
+                ="Learn more"
+  a.left.carousel-control href="#ideasCarousel" data-slide="prev"
+    span.glyphicon.glyphicon-chevron-left
+  a.right.carousel-control href="#ideasCarousel" data-slide="next"
+    span.glyphicon.glyphicon-chevron-right
