@@ -4,10 +4,10 @@
 #= require bootstrap
 #= require rails-timeago
 #= require summernote.min
-#= require ideas
-#= require qiniu
-#= require posts
+#= require_tree .
 
 #= require turbolinks
 
 $('.dropdown-toggle').dropdown()
+
+$('.carousel').carousel()

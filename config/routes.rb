@@ -1,4 +1,5 @@
 Ideaegg::Application.routes.draw do
+  get "static_pages/home"
   get "notifications/index"
   match '/auth/:provider/callback' => 'sessions#create', via: [:get, :post]
   delete '/log_out' => 'sessions#destroy', as: :log_out
@@ -30,6 +31,6 @@ Ideaegg::Application.routes.draw do
 
   get '/uploads/uptoken' => 'uploads#uptoken'
 
-  root 'ideas#index'
+  root 'static_pages#home'
 
 end
