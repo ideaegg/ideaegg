@@ -4,7 +4,7 @@
       .col-xs-10
         .post-item
           = link_to post, class: 'entry' do
-            .main= post.title
+            .header= post.title
             .tag= post.tag_list
           .meta
             = link_to post.user, class: 'author' do
