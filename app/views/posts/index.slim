@@ -1,12 +1,19 @@
 .row
-  - @posts.each do |post|
-    .container
-      .col-xs-10
-        .post-item
-          = link_to post, class: 'entry' do
-            .header= post.title
-            .tag= post.tag_list
-          .meta
-            = link_to post.user, class: 'author' do
-              = avatar_for(post.user, size: 16)
-              span= post.user.name
+  .container
+    table.table.table-hover.table-responsive
+      thead
+        tr
+          th= "Title"
+          th= "Tags"
+          th= "Publisher"
+      tbody
+        - @posts.each do |post|
+          tr
+            td.title
+              =link_to post do
+                =post.title
+            td.tag= post.tag_list
+            td.meta
+              = link_to post.user, class: 'author' do
+                = avatar_for(post.user, size: 16)
+                span= post.user.name
